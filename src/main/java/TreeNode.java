@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.gaofamily.leetcode;
+
 
 /**
  * @author Wei Gao

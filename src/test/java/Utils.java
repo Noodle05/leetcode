@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.gaofamily.leetcode;
+
 
 /**
  * A utility/helper to read ListNode, TreeNode and so on for Leetcode test
