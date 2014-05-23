@@ -1,5 +1,4 @@
 
-
 import static org.junit.Assert.*;
 
 import org.junit.Before;
@@ -7,10 +6,10 @@ import org.junit.Test;
 
 public class InsertionSortListTest {
   private InsertionSortList solution;
-  
+
   @Before
   public void init() {
-    solution  = new InsertionSortList();
+    solution = new InsertionSortList();
   }
 
   @Test(timeout = 10)
