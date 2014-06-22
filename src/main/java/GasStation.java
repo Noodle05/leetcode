@@ -1,8 +1,4 @@
 /**
- * 
- */
-
-/**
  * <p>
  * There are <i>N</i> gas stations along a circular route, where the amount of
  * gas at station <i>i</i> is <font color="red">gas[i]</font>.

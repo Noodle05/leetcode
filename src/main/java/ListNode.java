@@ -1,9 +1,4 @@
 /**
- * 
- */
-
-
-/**
  * @author Wei Gao
  */
 public class ListNode {

@@ -1,8 +1,4 @@
 /**
- * 
- */
-
-/**
  * <p>
  * Given a binary tree
  * 

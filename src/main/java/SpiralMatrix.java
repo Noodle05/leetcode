@@ -1,12 +1,28 @@
 import java.util.ArrayList;
 
 /**
+ * <p>
+ * Given a matrix of <i>m</i> x <i>n</i> elements (<i>m</i> rows, <i>n</i>
+ * columns), return all elements of the matrix in spiral order.
+ * </p>
+ * <p>
+ * For example,<br />
+ * Given the following matrix:
  * 
- */
-
-/**
- * @author weigao
- *
+ * <pre>
+ * [
+ *  [ 1, 2, 3 ],
+ *  [ 4, 5, 6 ],
+ *  [ 7, 8, 9 ]
+ * ]
+ * </pre>
+ * 
+ * You should return <font color="red">[1,2,3,6,9,8,7,4,5]</font>.
+ * <p>
+ * 
+ * @see <a href="https://oj.leetcode.com/problems/spiral-matrix/">LeetCode
+ *      Spiral Matrix Problem</a>
+ * @author Wei Gao
  */
 public class SpiralMatrix {
   public ArrayList<Integer> spiralOrder(int[][] matrix) {

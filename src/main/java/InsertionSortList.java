@@ -1,9 +1,4 @@
 /**
- * 
- */
-
-
-/**
  * <p>
  * Sort a linked list using insertion sort.
  * </p>
