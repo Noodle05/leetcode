@@ -19,27 +19,27 @@
  * @author Wei Gao
  */
 public class ValidateBinarySearchTree {
-  public boolean isValidBST(TreeNode root) {
-    return isValidBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
-  }
+    public boolean isValidBST(TreeNode root) {
+        return isValidBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+    }
 
-  private boolean isValidBST(TreeNode root, int leftBound, int rightBound) {
-    if (root == null) {
-      return true;
+    private boolean isValidBST(TreeNode root, int leftBound, int rightBound) {
+        if (root == null) {
+            return true;
+        }
+        if (root.val <= leftBound || root.val >= rightBound) {
+            return false;
+        }
+        if (root.left != null) {
+            if (!isValidBST(root.left, leftBound, root.val)) {
+                return false;
+            }
+        }
+        if (root.right != null) {
+            if (!isValidBST(root.right, root.val, rightBound)) {
+                return false;
+            }
+        }
+        return true;
     }
-    if (root.val <= leftBound || root.val >= rightBound) {
-      return false;
-    }
-    if (root.left != null) {
-      if (!isValidBST(root.left, leftBound, root.val)) {
-        return false;
-      }
-    }
-    if (root.right != null) {
-      if (!isValidBST(root.right, root.val, rightBound)) {
-        return false;
-      }
-    }
-    return true;
-  }
 }

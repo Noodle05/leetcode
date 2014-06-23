@@ -31,22 +31,22 @@ import java.util.Deque;
  * @author Wei Gao
  */
 public class BinaryTreePreorderTraversal {
-  public ArrayList<Integer> preorderTraversal(TreeNode root) {
-    ArrayList<Integer> result = new ArrayList<>();
-    if (root != null) {
-      Deque<TreeNode> stack = new ArrayDeque<>();
-      stack.push(root);
-      while (!stack.isEmpty()) {
-        TreeNode node = stack.pop();
-        result.add(node.val);
-        if (node.right != null) {
-          stack.push(node.right);
+    public ArrayList<Integer> preorderTraversal(TreeNode root) {
+        ArrayList<Integer> result = new ArrayList<>();
+        if (root != null) {
+            Deque<TreeNode> stack = new ArrayDeque<>();
+            stack.push(root);
+            while (!stack.isEmpty()) {
+                TreeNode node = stack.pop();
+                result.add(node.val);
+                if (node.right != null) {
+                    stack.push(node.right);
+                }
+                if (node.left != null) {
+                    stack.push(node.left);
+                }
+            }
         }
-        if (node.left != null) {
-          stack.push(node.left);
-        }
-      }
+        return result;
     }
-    return result;
-  }
 }

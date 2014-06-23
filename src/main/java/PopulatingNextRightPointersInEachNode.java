@@ -55,45 +55,45 @@
  *
  */
 public class PopulatingNextRightPointersInEachNode {
-  public void connect(TreeLinkNode root) {
-    TreeLinkNode current = root;
-    TreeLinkNode currentParent = null;
-    while (current != null) {
-      TreeLinkNode node = current;
-      TreeLinkNode parent = currentParent;
-      while (node != null && node.left != null) {
-        node.left.next = node.right;
-        if (parent != null) {
-          if (parent.right != node) {
-            node.right.next = parent.right.left;
-          } else if (parent.next != null) {
-            node.right.next = parent.next.left.left;
-          }
-          node = node.next;
-          if (parent.right != node) {
-            parent = parent.next;
-          }
-        } else {
-          node = null;
+    public void connect(TreeLinkNode root) {
+        TreeLinkNode current = root;
+        TreeLinkNode currentParent = null;
+        while (current != null) {
+            TreeLinkNode node = current;
+            TreeLinkNode parent = currentParent;
+            while (node != null && node.left != null) {
+                node.left.next = node.right;
+                if (parent != null) {
+                    if (parent.right != node) {
+                        node.right.next = parent.right.left;
+                    } else if (parent.next != null) {
+                        node.right.next = parent.next.left.left;
+                    }
+                    node = node.next;
+                    if (parent.right != node) {
+                        parent = parent.next;
+                    }
+                } else {
+                    node = null;
+                }
+            }
+            currentParent = current;
+            current = currentParent.left;
         }
-      }
-      currentParent = current;
-      current = currentParent.left;
+        /**
+         * Recursive solution
+         * 
+         * <pre>
+         * if (root == null || root.left == null || root.right == null) {
+         *     return;
+         * }
+         * if (root.next != null) {
+         *     root.right.next = root.next.left;
+         * }
+         * root.left.next = root.right;
+         * connect(root.left);
+         * connect(root.right);
+         * </pre>
+         */
     }
-    /**
-     * Recursive solution
-     * 
-     * <pre>
-     * if (root == null || root.left == null || root.right == null) {
-     *   return;
-     * }
-     * if (root.next != null) {
-     *   root.right.next = root.next.left;
-     * }
-     * root.left.next = root.right;
-     * connect(root.left);
-     * connect(root.right);
-     * </pre>
-     */
-  }
 }

@@ -21,74 +21,74 @@ import java.util.Map;
  *
  */
 public class LRUCache {
-  final Map<Integer, Key> cache;
-  final Key header;
-  final Key tail;
-  final int capacity;
+    final Map<Integer, Key> cache;
+    final Key header;
+    final Key tail;
+    final int capacity;
 
-  public LRUCache(int capacity) {
-    this.capacity = capacity;
-    cache = new HashMap<>();
-    header = new Key(null, null);
-    tail = new Key(null, null);
-    header.next = tail;
-    header.previous = tail;
-    tail.next = header;
-    tail.previous = header;
-  }
-
-  public int get(int key) {
-    Key k = cache.get(key);
-    if (k != null) {
-      remove(k);
-      addToFirst(k);
-      return k.val;
-    } else {
-      return -1;
+    public LRUCache(int capacity) {
+        this.capacity = capacity;
+        cache = new HashMap<>();
+        header = new Key(null, null);
+        tail = new Key(null, null);
+        header.next = tail;
+        header.previous = tail;
+        tail.next = header;
+        tail.previous = header;
     }
-  }
 
-  public void set(int key, int value) {
-    Key k = cache.get(key);
-    if (k != null) {
-      k.val = value;
-      remove(k);
-    } else {
-      k = new Key(key, value);
-      cache.put(key, k);
+    public int get(int key) {
+        Key k = cache.get(key);
+        if (k != null) {
+            remove(k);
+            addToFirst(k);
+            return k.val;
+        } else {
+            return -1;
+        }
     }
-    addToFirst(k);
-    if (cache.size() > capacity) {
-      int num = cache.size() - capacity;
-      for (int i = 0; i < num; i++) {
-        Key t = tail.previous;
-        remove(t);
-        cache.remove(t.key);
-      }
+
+    public void set(int key, int value) {
+        Key k = cache.get(key);
+        if (k != null) {
+            k.val = value;
+            remove(k);
+        } else {
+            k = new Key(key, value);
+            cache.put(key, k);
+        }
+        addToFirst(k);
+        if (cache.size() > capacity) {
+            int num = cache.size() - capacity;
+            for (int i = 0; i < num; i++) {
+                Key t = tail.previous;
+                remove(t);
+                cache.remove(t.key);
+            }
+        }
     }
-  }
 
-  private void remove(Key key) {
-    key.previous.next = key.next;
-    key.next.previous = key.previous;
-  }
-
-  private void addToFirst(Key key) {
-    key.next = header.next;
-    key.next.previous = key;
-    header.next = key;
-    key.previous = header;
-  }
-
-  private class Key {
-    final Integer key;
-    Integer val;
-    Key previous;
-    Key next;
-
-    private Key(Integer key, Integer val) {
-      this.key = key;
-      this.val = val;
+    private void remove(Key key) {
+        key.previous.next = key.next;
+        key.next.previous = key.previous;
     }
-  }
+
+    private void addToFirst(Key key) {
+        key.next = header.next;
+        key.next.previous = key;
+        header.next = key;
+        key.previous = header;
+    }
+
+    private class Key {
+        final Integer key;
+        Integer val;
+        Key previous;
+        Key next;
+
+        private Key(Integer key, Integer val) {
+            this.key = key;
+            this.val = val;
+        }
+    }
 }

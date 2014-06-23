@@ -21,13 +21,13 @@
  * @author Wei Gao
  */
 public class MaximumSubarray {
-  public int maxSubArray(int[] A) {
-    int currentSum;
-    int max = currentSum = A[0];
-    for (int i = 1; i < A.length; i++) {
-      currentSum = (currentSum < 0 ? A[i] : currentSum + A[i]);
-      max = max > currentSum ? max : currentSum;
+    public int maxSubArray(int[] A) {
+        int currentSum;
+        int max = currentSum = A[0];
+        for (int i = 1; i < A.length; i++) {
+            currentSum = (currentSum < 0 ? A[i] : currentSum + A[i]);
+            max = max > currentSum ? max : currentSum;
+        }
+        return max;
     }
-    return max;
-  }
 }

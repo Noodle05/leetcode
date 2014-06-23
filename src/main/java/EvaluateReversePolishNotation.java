@@ -13,9 +13,13 @@ import java.util.LinkedList;
  * an integer or another expression.<br />
  * </p>
  * <p>
- * Some examples: 
- * <pre> ["2", "1", "+", "3", "*"] -> ((2 + 1) * 3) -> 9
- * ["4", "13", "5", "/", "+"] -> (4 + (13 / 5)) -> 6</pre>
+ * Some examples:
+ * 
+ * <pre>
+ * ["2", "1", "+", "3", "*"] -> ((2 + 1) * 3) -> 9
+ * ["4", "13", "5", "/", "+"] -> (4 + (13 / 5)) -> 6
+ * </pre>
+ * 
  * </p>
  * 
  * @see <a
@@ -25,46 +29,46 @@ import java.util.LinkedList;
  *
  */
 public class EvaluateReversePolishNotation {
-  public int evalRPN(String[] tokens) {
-    Deque<Integer> values = new LinkedList<>();
-    int result;
-    for (String token : tokens) {
-      switch (token) {
-      case "+": {
-        int a = values.pop();
-        int b = values.pop();
-        int c = b + a;
-        values.push(c);
-        break;
-      }
-      case "-": {
-        int a = values.pop();
-        int b = values.pop();
-        int c = b - a;
-        values.push(c);
-        break;
-      }
-      case "*": {
-        int a = values.pop();
-        int b = values.pop();
-        int c = b * a;
-        values.push(c);
-        break;
-      }
-      case "/": {
-        int a = values.pop();
-        int b = values.pop();
-        int c = b / a;
-        values.push(c);
-        break;
-      }
-      default: {
-        int val = Integer.parseInt(token);
-        values.push(val);
-      }
-      }
+    public int evalRPN(String[] tokens) {
+        Deque<Integer> values = new LinkedList<>();
+        int result;
+        for (String token : tokens) {
+            switch (token) {
+            case "+": {
+                int a = values.pop();
+                int b = values.pop();
+                int c = b + a;
+                values.push(c);
+                break;
+            }
+            case "-": {
+                int a = values.pop();
+                int b = values.pop();
+                int c = b - a;
+                values.push(c);
+                break;
+            }
+            case "*": {
+                int a = values.pop();
+                int b = values.pop();
+                int c = b * a;
+                values.push(c);
+                break;
+            }
+            case "/": {
+                int a = values.pop();
+                int b = values.pop();
+                int c = b / a;
+                values.push(c);
+                break;
+            }
+            default: {
+                int val = Integer.parseInt(token);
+                values.push(val);
+            }
+            }
+        }
+        result = values.pop();
+        return result;
     }
-    result = values.pop();
-    return result;
-  }
 }

@@ -32,26 +32,26 @@ import java.util.Deque;
  * @author Wei Gao
  */
 public class BinaryTreePostorderTraversal {
-  public ArrayList<Integer> postorderTraversal(TreeNode root) {
-    ArrayList<Integer> result = new ArrayList<>();
-    Deque<TreeNode> stack = new ArrayDeque<>();
-    TreeNode lastVisitedNode = null;
-    TreeNode node = root;
-    while (!stack.isEmpty() || node != null) {
-      if (node != null) {
-        stack.push(node);
-        node = node.left;
-      } else {
-        TreeNode peekNode = stack.peek();
-        if (peekNode.right != null && lastVisitedNode != peekNode.right) {
-          node = peekNode.right;
-        } else {
-          stack.pop();
-          result.add(peekNode.val);
-          lastVisitedNode = peekNode;
+    public ArrayList<Integer> postorderTraversal(TreeNode root) {
+        ArrayList<Integer> result = new ArrayList<>();
+        Deque<TreeNode> stack = new ArrayDeque<>();
+        TreeNode lastVisitedNode = null;
+        TreeNode node = root;
+        while (!stack.isEmpty() || node != null) {
+            if (node != null) {
+                stack.push(node);
+                node = node.left;
+            } else {
+                TreeNode peekNode = stack.peek();
+                if (peekNode.right != null && lastVisitedNode != peekNode.right) {
+                    node = peekNode.right;
+                } else {
+                    stack.pop();
+                    result.add(peekNode.val);
+                    lastVisitedNode = peekNode;
+                }
+            }
         }
-      }
+        return result;
     }
-    return result;
-  }
 }

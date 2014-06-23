@@ -31,20 +31,20 @@ import java.util.Deque;
  * @author Wei Gao
  */
 public class BinaryTreeInorderTraversal {
-  public ArrayList<Integer> inorderTraversal(TreeNode root) {
-    ArrayList<Integer> result = new ArrayList<>();
-    Deque<TreeNode> stack = new ArrayDeque<>();
-    TreeNode node = root;
-    while (!stack.isEmpty() || node != null) {
-      if (node != null) {
-        stack.push(node);
-        node = node.left;
-      } else {
-        node = stack.pop();
-        result.add(node.val);
-        node = node.right;
-      }
+    public ArrayList<Integer> inorderTraversal(TreeNode root) {
+        ArrayList<Integer> result = new ArrayList<>();
+        Deque<TreeNode> stack = new ArrayDeque<>();
+        TreeNode node = root;
+        while (!stack.isEmpty() || node != null) {
+            if (node != null) {
+                stack.push(node);
+                node = node.left;
+            } else {
+                node = stack.pop();
+                result.add(node.val);
+                node = node.right;
+            }
+        }
+        return result;
     }
-    return result;
-  }
 }

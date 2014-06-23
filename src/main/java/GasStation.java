@@ -26,24 +26,24 @@
  * @author Wei Gao
  */
 public class GasStation {
-  public int canCompleteCircuuit(int[] gas, int[] cost) {
-    if (gas == null || cost == null || gas.length == 0
-        || gas.length != cost.length) {
-      return -1;
+    public int canCompleteCircuuit(int[] gas, int[] cost) {
+        if (gas == null || cost == null || gas.length == 0
+                || gas.length != cost.length) {
+            return -1;
+        }
+        int start = 0;
+        int leftGas = 0;
+        for (int i = 0; i < gas.length * 2; i++) {
+            leftGas += gas[i % gas.length] - cost[i % cost.length];
+            if (leftGas < 0) {
+                start = i + 1;
+                leftGas = 0;
+            }
+        }
+        if (start > gas.length) {
+            return -1;
+        } else {
+            return start;
+        }
     }
-    int start = 0;
-    int leftGas = 0;
-    for (int i = 0; i < gas.length * 2; i++) {
-      leftGas += gas[i % gas.length] - cost[i % cost.length];
-      if (leftGas < 0) {
-        start = i + 1;
-        leftGas = 0;
-      }
-    }
-    if (start > gas.length) {
-      return -1;
-    } else {
-      return start;
-    }
-  }
 }

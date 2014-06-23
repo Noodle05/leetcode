@@ -20,20 +20,20 @@ import java.util.Set;
  * @author Wei Gao
  */
 public class WordBreak {
-  public boolean wordBreak(String s, Set<String> dict) {
-    int len = s.length();
-    boolean[] dp = new boolean[len + 1];
-    dp[len] = true;
+    public boolean wordBreak(String s, Set<String> dict) {
+        int len = s.length();
+        boolean[] dp = new boolean[len + 1];
+        dp[len] = true;
 
-    for (int i = len - 1; i >= 0; i--) {
-      for (int j = i; j < len; j++) {
-        String str = s.substring(i, j + 1);
-        if (dict.contains(str) && dp[j + 1]) {
-          dp[i] = true;
-          break;
+        for (int i = len - 1; i >= 0; i--) {
+            for (int j = i; j < len; j++) {
+                String str = s.substring(i, j + 1);
+                if (dict.contains(str) && dp[j + 1]) {
+                    dp[i] = true;
+                    break;
+                }
+            }
         }
-      }
+        return dp[0];
     }
-    return dp[0];
-  }
 }

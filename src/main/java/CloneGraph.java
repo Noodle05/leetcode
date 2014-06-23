@@ -54,29 +54,29 @@ import java.util.Queue;
  * @author Wei Gao
  */
 public class CloneGraph {
-  public UndirectedGraphNode cloneGraph(UndirectedGraphNode node) {
-    UndirectedGraphNode clone = null;
-    if (node != null) {
-      Map<UndirectedGraphNode, UndirectedGraphNode> map = new HashMap<>();
+    public UndirectedGraphNode cloneGraph(UndirectedGraphNode node) {
+        UndirectedGraphNode clone = null;
+        if (node != null) {
+            Map<UndirectedGraphNode, UndirectedGraphNode> map = new HashMap<>();
 
-      Queue<UndirectedGraphNode> queue = new ArrayDeque<>();
-      clone = new UndirectedGraphNode(node.label);
-      map.put(node, clone);
-      queue.add(node);
-      while (!queue.isEmpty()) {
-        UndirectedGraphNode n = queue.poll();
-        UndirectedGraphNode c = map.get(n);
-        for (UndirectedGraphNode nb : n.neighbors) {
-          UndirectedGraphNode cnb = map.get(nb);
-          if (cnb == null) {
-            cnb = new UndirectedGraphNode(nb.label);
-            map.put(nb, cnb);
-            queue.add(nb);
-          }
-          c.neighbors.add(cnb);
+            Queue<UndirectedGraphNode> queue = new ArrayDeque<>();
+            clone = new UndirectedGraphNode(node.label);
+            map.put(node, clone);
+            queue.add(node);
+            while (!queue.isEmpty()) {
+                UndirectedGraphNode n = queue.poll();
+                UndirectedGraphNode c = map.get(n);
+                for (UndirectedGraphNode nb : n.neighbors) {
+                    UndirectedGraphNode cnb = map.get(nb);
+                    if (cnb == null) {
+                        cnb = new UndirectedGraphNode(nb.label);
+                        map.put(nb, cnb);
+                        queue.add(nb);
+                    }
+                    c.neighbors.add(cnb);
+                }
+            }
         }
-      }
+        return clone;
     }
-    return clone;
-  }
 }

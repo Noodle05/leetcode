@@ -25,35 +25,35 @@
  * @author Wei Gao
  */
 public class PalindromeNumber {
-  public boolean isPalindrome(int x) {
-    if (x < 0) {
-      return false;
-    }
-    int t = x;
-    int digitals = 0;
-    while (t > 0) {
-      digitals++;
-      t = t / 10;
-    }
-    t = x;
-    while (digitals > 1) {
-      int a = t % 10;
-      int b = t;
-      for (int i = 0; i < digitals - 1; i++) {
-        b = b / 10;
-      }
-      if (a != b) {
-        return false;
-      }
-      if (a > 0) {
-        for (int i = 0; i < digitals - 1; i++) {
-          a *= 10;
+    public boolean isPalindrome(int x) {
+        if (x < 0) {
+            return false;
         }
-      }
-      t -= a;
-      t /= 10;
-      digitals -= 2;
+        int t = x;
+        int digitals = 0;
+        while (t > 0) {
+            digitals++;
+            t = t / 10;
+        }
+        t = x;
+        while (digitals > 1) {
+            int a = t % 10;
+            int b = t;
+            for (int i = 0; i < digitals - 1; i++) {
+                b = b / 10;
+            }
+            if (a != b) {
+                return false;
+            }
+            if (a > 0) {
+                for (int i = 0; i < digitals - 1; i++) {
+                    a *= 10;
+                }
+            }
+            t -= a;
+            t /= 10;
+            digitals -= 2;
+        }
+        return true;
     }
-    return true;
-  }
 }

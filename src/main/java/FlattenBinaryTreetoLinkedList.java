@@ -47,29 +47,29 @@ import java.util.Deque;
  * @author Wei Gao
  */
 public class FlattenBinaryTreetoLinkedList {
-  public void flatten(TreeNode root) {
-    Deque<TreeNode> stack = new ArrayDeque<>();
-    if (root == null) {
-      return;
-    }
-    TreeNode current = root;
-    while (current != null) {
-      if (current.right != null) {
-        stack.push(current.right);
-        current.right = null;
-      }
-      if (current.left != null) {
-        current.right = current.left;
-        current.left = null;
-        current = current.right;
-      } else {
-        if (!stack.isEmpty()) {
-          current.right = stack.pop();
-          current = current.right;
-        } else {
-          current = null;
+    public void flatten(TreeNode root) {
+        Deque<TreeNode> stack = new ArrayDeque<>();
+        if (root == null) {
+            return;
         }
-      }
+        TreeNode current = root;
+        while (current != null) {
+            if (current.right != null) {
+                stack.push(current.right);
+                current.right = null;
+            }
+            if (current.left != null) {
+                current.right = current.left;
+                current.left = null;
+                current = current.right;
+            } else {
+                if (!stack.isEmpty()) {
+                    current.right = stack.pop();
+                    current = current.right;
+                } else {
+                    current = null;
+                }
+            }
+        }
     }
-  }
 }
