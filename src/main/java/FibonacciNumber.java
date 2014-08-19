@@ -1,5 +1,6 @@
 /**
- * Calculate Fibonacci Number
+ * Calculate Fibonacci Number. This program use matrix multiple to calculate
+ * fibonacci number.
  * 
  * @author Wei Gao
  */
