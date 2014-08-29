@@ -17,7 +17,7 @@ public class ConstructBinaryGTreeFromInorderAndPostOrderTraversal {
     public TreeNode buildTree(int[] inorder, int[] postorder) {
         if (inorder.length > 0) {
             return buildTree(inorder, postorder, 0, inorder.length, 0,
-                    inorder.length);
+                    postorder.length);
         } else {
             return null;
         }
@@ -38,8 +38,8 @@ public class ConstructBinaryGTreeFromInorderAndPostOrderTraversal {
             node.left = buildTree(inorder, postorder, ib, m, pb, pb + (m - ib));
         }
         if ((m + 1) < ie) {
-            node.right = buildTree(inorder, postorder, ib + (m - ib) + 1, ie, pb
-                    + (m - ib), pe - 1);
+            node.right = buildTree(inorder, postorder, ib + (m - ib) + 1, ie,
+                    pb + (m - ib), pe - 1);
         }
         return node;
     }
