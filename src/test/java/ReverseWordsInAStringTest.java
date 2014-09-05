@@ -1,15 +1,14 @@
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
 
-public class ReverseWordsTest {
-    private ReverseWords solution;
+public class ReverseWordsInAStringTest {
+    private ReverseWordsInAString solution;
 
     @Before
     public void init() {
-        solution = new ReverseWords();
+        solution = new ReverseWordsInAString();
     }
 
     @Test

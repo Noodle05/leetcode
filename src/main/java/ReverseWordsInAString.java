@@ -25,7 +25,7 @@
  *      Reverse Words in a String Problem</a>
  * @author Wei Gao
  */
-public class ReverseWords {
+public class ReverseWordsInAString {
     public String reverseWords(String s) {
         if (s == null) {
             return null;
