@@ -1,6 +1,7 @@
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
+import java.util.List;
 
 /**
  * <p>
@@ -32,8 +33,8 @@ import java.util.Deque;
  * @author Wei Gao
  */
 public class BinaryTreePostorderTraversal {
-    public ArrayList<Integer> postorderTraversal(TreeNode root) {
-        ArrayList<Integer> result = new ArrayList<>();
+    public List<Integer> postorderTraversal(TreeNode root) {
+        List<Integer> result = new ArrayList<>();
         Deque<TreeNode> stack = new ArrayDeque<>();
         TreeNode lastVisitedNode = null;
         TreeNode node = root;
