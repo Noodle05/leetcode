@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 
 /**
  * <p>
@@ -28,20 +30,34 @@
  */
 public class DistinctSubsequences {
     public int numDistinct(String S, String T) {
+//        int m = T.length();
+//        int n = S.length();
+//
+//        if (m > n)
+//            return 0;
+//        int[] path = new int[m + 1];
+//        path[0] = 1;
+//        for (int j = 1; j <= n; j++) {
+//            for (int i = m; i >= 1; i--) {
+//                path[i] = path[i]
+//                        + (T.charAt(i - 1) == S.charAt(j - 1) ? path[i - 1] : 0);
+//            }
+//        }
+//
+//        return path[m];
         int m = T.length();
         int n = S.length();
-
-        if (m > n)
+        if (m > n) {
             return 0;
-        int[] path = new int[m + 1];
-        path[0] = 1;
-        for (int j = 1; j <= n; j++) {
-            for (int i = m; i >= 1; i--) {
-                path[i] = path[i]
-                        + (T.charAt(i - 1) == S.charAt(j - 1) ? path[i - 1] : 0);
+        }
+        int[][] path = new int[m + 1][n + 1];
+        Arrays.fill(path[0], 1);
+        
+        for (int j = 1; j <= n; j ++) {
+            for (int i = 1; i <= m; i ++) {
+                path[i][j] = path[i][j - 1] + (T.charAt(i - 1) == S.charAt(j - 1) ? path[i - 1][j - 1] : 0);
             }
         }
-
-        return path[m];
+        return path[m][n];
     }
 }

@@ -19,6 +19,16 @@
  *
  */
 public class InterleavingString {
+    /**
+     * Define the dp[i][j] as if we can use first i characters from s1 and first
+     * j characters from s2 to generate the s3 with length i + j, dp[0][0] =
+     * true and the answer is dp[n][m]
+     * 
+     * @param s1
+     * @param s2
+     * @param s3
+     * @return
+     */
     public boolean isInterleave(String s1, String s2, String s3) {
         if (s3.length() != s1.length() + s2.length()) {
             return false;
