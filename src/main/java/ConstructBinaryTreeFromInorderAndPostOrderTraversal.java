@@ -13,7 +13,7 @@
  *      Problem</a>
  * @author Wei Gao
  */
-public class ConstructBinaryGTreeFromInorderAndPostOrderTraversal {
+public class ConstructBinaryTreeFromInorderAndPostOrderTraversal {
     public TreeNode buildTree(int[] inorder, int[] postorder) {
         if (inorder.length > 0) {
             return buildTree(inorder, postorder, 0, inorder.length, 0,

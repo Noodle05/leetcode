@@ -2,12 +2,12 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class ConstructBinaryGTreeFromInorderAndPostOrderTraversalTest {
-    private ConstructBinaryGTreeFromInorderAndPostOrderTraversal solution;
+public class ConstructBinaryTreeFromInorderAndPostOrderTraversalTest {
+    private ConstructBinaryTreeFromInorderAndPostOrderTraversal solution;
 
     @Before
     public void init() {
-        solution = new ConstructBinaryGTreeFromInorderAndPostOrderTraversal();
+        solution = new ConstructBinaryTreeFromInorderAndPostOrderTraversal();
     }
 
     @Test
