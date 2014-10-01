@@ -30,22 +30,24 @@ public class UniquePathsII {
         int n = obstacleGrid[0].length;
         if (obstacleGrid[m - 1][n - 1] == 0) {
             map.put((m - 1) * 100 + (n - 1), 1);
-        }
-        if (obstacleGrid[0][0] == 1 || obstacleGrid[m - 1][n - 1] == 1) {
+        } else {
             return 0;
         }
         return uniquePathsWithObstacles(0, 0, obstacleGrid, map);
     }
     
     private int uniquePathsWithObstacles(int x, int y, int[][] obstacleGrid, Map<Integer, Integer> map) {
+        if (obstacleGrid[x][y] == 1) {
+            return 0;
+        }
         if (map.containsKey(x * 100 + y)) {
             return map.get(x * 100 + y);
         }
         int num = 0;
-        if (x < obstacleGrid.length - 1 && obstacleGrid[x + 1][y] == 0) {
+        if (x < obstacleGrid.length - 1) {
             num += uniquePathsWithObstacles(x + 1, y, obstacleGrid, map);
         }
-        if (y < obstacleGrid[0].length - 1 && obstacleGrid[x][y + 1] == 0) {
+        if (y < obstacleGrid[0].length - 1) {
             num += uniquePathsWithObstacles(x, y + 1, obstacleGrid, map);
         }
         map.put(x * 100 + y, num);
