@@ -38,12 +38,12 @@ public class EditDistance {
             for (int j = 1; j <= len2; j++) {
                 int t;
                 if (word1.charAt(i - 1) == word2.charAt(j - 1)) {
-                    t = dp[i - 1][j - 1];
+                    t = dp[i - 1][j - 1]; // If same, no operation needed.
                 } else {
-                    t = dp[i - 1][j - 1] + 2;
+                    t = dp[i - 1][j - 1] + 1; // Replace Depend on weight of replace, cloud be 2 or 1.
                 }
-                t = t < dp[i - 1][j] + 1 ? t : dp[i - 1][j] + 1;
-                t = t < dp[i][j - 1] + 1 ? t : dp[i][j - 1] + 1;
+                t = t < dp[i - 1][j] + 1 ? t : dp[i - 1][j] + 1; // delete
+                t = t < dp[i][j - 1] + 1 ? t : dp[i][j - 1] + 1; // insert
                 dp[i][j] = t;
             }
         }

@@ -17,6 +17,11 @@ public class EditDistanceTest {
 
     @Test
     public void test2() {
-        Assert.assertEquals(8, solution.minDistance("INTE*NTION", "*EXECUTION"));
+        Assert.assertEquals(1, solution.minDistance("", "a"));
+    }
+
+    @Test
+    public void test3() {
+        Assert.assertEquals(8, solution.minDistance("INTENTION", "EXECUTION"));
     }
 }
