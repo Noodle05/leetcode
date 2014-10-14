@@ -13,6 +13,25 @@ import java.util.Map;
  * @author Wei Gao
  */
 public class MaxPointsOnALine {
+    /*
+     * A line is determined by two factors,say y=ax+b
+     * 
+     * If two points(x1,y1) (x2,y2) are on the same line(Of course).
+     * 
+     * Consider the gap between two points.
+     * 
+     * We have (y2-y1)=a(x2-x1),a=(y2-y1)/(x2-x1) a is a rational, b is canceled
+     * since b is a constant
+     * 
+     * If a third point (x3,y3) are on the same line. So we must have y3=ax3+b
+     * 
+     * Thus,(y3-y1)/(x3-x1)=(y2-y1)/(x2-x1)=a
+     * 
+     * Since a is a rational, there exists y0 and x0,
+     * y0/x0=(y3-y1)/(x3-x1)=(y2-y1)/(x2-x1)=a
+     * 
+     * So we can use y0/x0 to track a line;
+     */
     public int maxPoints(Point[] points) {
         if (points == null || points.length == 0) {
             return 0;
@@ -40,12 +59,9 @@ public class MaxPointsOnALine {
                             entry.setValue(count);
                             max = Math.max(max, count);
                         }
-                        verticalPoints++;
-                        max = Math.max(max, verticalPoints);
-                    } else {
-                        verticalPoints++;
-                        max = Math.max(max, verticalPoints);
                     }
+                    verticalPoints++;
+                    max = Math.max(max, verticalPoints);
                 } else {
                     double slope = 1.0 * (p2.y - p1.y) / (p2.x - p1.x);
                     if (slope == -0.0) {
