@@ -41,4 +41,12 @@ public class NextPermutationTest {
         solution.nextPermutation(actuals);
         Assert.assertArrayEquals(expecteds, actuals);
     }
+
+    @Test
+    public void test5() {
+        int[] expecteds = new int[] { 2,2,4,0,1,4,0,2,4 };
+        int[] actuals = new int[] { 2,2,4,0,1,2,4,4,0 };
+        solution.nextPermutation(actuals);
+        Assert.assertArrayEquals(expecteds, actuals);
+    }
 }

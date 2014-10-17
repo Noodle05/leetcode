@@ -74,21 +74,24 @@ public class NextPermutation {
     }
 
     private void reverseSort(int[] num, int begin, int end) {
-        int v = num[begin];
-        int pos = begin;
-        for (int i = begin + 1; i <= end; i++) {
-            if (num[i] < v) {
-                for (int j = i; j > pos; j--) {
-                    swap(num, j, j - 1);
-                }
-                pos++;
+        swap(num, begin, end);
+        int i = begin;
+        int j = end;
+        while (i < j) {
+            while (i < j && num[i] <= num[end]) {
+                i ++;
             }
+            while (j > i && num[j] >= num[end]) {
+                j --;
+            }
+            swap(num, i, j);
         }
-        if (pos > begin + 1) {
-            reverseSort(num, begin, pos - 1);
+        swap(num, i, end);
+        if (i > begin + 1) {
+            reverseSort(num, begin, i - 1);
         }
-        if (pos < end - 1) {
-            reverseSort(num, pos + 1, end);
+        if (i < end - 1) {
+            reverseSort(num, i + 1, end);
         }
     }
 }
