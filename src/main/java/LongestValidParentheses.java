@@ -1,5 +1,28 @@
 import java.util.Arrays;
 
+/**
+ * <p>
+ * Given a string containing just the characters <font color="red">'('</font>
+ * and <font color="red">')'</font>, find the length of the longest valid
+ * (well-formed) parentheses substring.
+ * </p>
+ * 
+ * <p>
+ * For <font color="red">"(()"</font>, the longest valid parentheses substring
+ * is <font color="red">"()"</font>, which has length = 2.
+ * </p>
+ * 
+ * <p>
+ * Another example is <font color="red">")()())"</font>, where the longest valid
+ * parentheses substring is <font color="red">"()()"</font>, which has length =
+ * 4.
+ * </p>
+ * 
+ * @author Wei Gao
+ * @see <a
+ *      href="https://oj.leetcode.com/problems/longest-valid-parentheses/">Leetcode
+ *      Longest Valid Parentheses Problem</a>
+ */
 public class LongestValidParentheses {
     /**
      * <pre>
