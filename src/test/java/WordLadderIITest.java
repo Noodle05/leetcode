@@ -18,7 +18,6 @@ public class WordLadderIITest {
         solution = new WordLadderII();
     }
 
-    @Ignore
     @Test
     public void test1() {
         List<List<String>> expect = new ArrayList<>();

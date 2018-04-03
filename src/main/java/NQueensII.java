@@ -8,7 +8,7 @@
  * distinct solutions.
  * </p>
  * <p>
- * <img src="http://www.leetcode.com/wp-content/uploads/2012/03/8-queens.png" />
+ * <img src="https://leetcode.com/static/images/problemset/8-queens.png" />
  * </p>
  * 
  * @see <a href="https://oj.leetcode.com/problems/n-queens-ii/">Leetcode
