@@ -52,17 +52,19 @@ public class CombinationSumII {
             result.add(list);
             return;
         }
-        for (int i = offset; i < num.length; i++) {
+        int i = offset;
+        while (i < num.length) {
             int newTarget = target - num[i];
+            int j = i + 1;
             if (newTarget >= 0) {
                 List<Integer> copy = new ArrayList<>(list);
                 copy.add(num[i]);
-                int j = i + 1;
-                while (num[j] == num[i]) {
-                    j++;
-                }
                 combinationSum2(copy, newTarget, num, j, result);
             }
+            while (j < num.length && (num[j] == num[i])) {
+                j ++;
+            }
+            i = j;
         }
     }
 }

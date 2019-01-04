@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -32,15 +33,15 @@ public class SubstringWithConcatenationOfAllWords {
      * The words are all of the same width, Hence the dictionary will be the
      * same for overlapping valid substrings (Ex: "foobarisbarfoobar"
      * ["foo","bar"]) in which the "barfoobar" has overlapping valid substrings
-     * "barfoo" and "foobar" and both have same dictionary.Thus we need not
+     * "barfoo" and "foobar" and both have same dictionary. Thus we need not
      * construct the dictionary again, instead reuse the dictionary with some
      * proper cases.
      * </p>
      * 
      * <p>
      * Secondly instead of traversing the string character by character we can
-     * traverse it in the form of words by words( w increments) fot the above
-     * purpose. then do the same for the a character shifted to find out the
+     * traverse it in the form of words by words( w increments) for the above
+     * purpose, then do the same for the a character shifted to find out the
      * valid strings there.
      * </p>
      * 
@@ -67,10 +68,10 @@ public class SubstringWithConcatenationOfAllWords {
      *           For w : all words at intervals i, i+w, i+2w, .. n
      *            i) check if word w is  valid, if not set start to next word as the substring uptil now will be invalid.
      * 
-     *           ii) if word is valid, check the number of occurences of this word in the substring  is less than availbale words
-     *          increment  count of the word in the hash table cntL 
+     *           ii) if word is valid, check the number of occurences of this word in the substring is less than availbale words
+     *          increment count of the word in the hash table cntL
      * 
-     *         iii) if the word is valid , but already occured maximum number of times, then consider the substring starting after the first occurence of this word.set start.
+     *         iii) if the word is valid, but already occured maximum number of times, then consider the substring starting after the first occurence of this word.set start.
      * 
      *         if (all the dictionary words are used then store the start as the valid substring start.
      * </pre>
@@ -86,7 +87,7 @@ public class SubstringWithConcatenationOfAllWords {
         if (S == null || L == null || S.length() == 0 || L.length == 0)
             return result;
         // creat a dict of T
-        HashMap<String, Integer> map = new HashMap<String, Integer>();
+        Map<String, Integer> map = new HashMap<String, Integer>();
         for (String s : L) {
             if (map.containsKey(s)) {
                 map.put(s, map.get(s) + 1);
@@ -100,7 +101,7 @@ public class SubstringWithConcatenationOfAllWords {
             int count = 0;
             int left = i;
             // creat a new dict for current index
-            HashMap<String, Integer> curMap = new HashMap<>();
+            Map<String, Integer> curMap = new HashMap<>();
             for (int j = i; j <= S.length() - wordLen; j += wordLen) {
                 String str = S.substring(j, j + wordLen);
                 if (map.containsKey(str)) {
