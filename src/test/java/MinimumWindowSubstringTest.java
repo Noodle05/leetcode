@@ -13,7 +13,7 @@ public class MinimumWindowSubstringTest {
     @Test
     public void test1() {
         String expected = "BANC";
-        String actual = solution.minWindow("ADOBECODEBANC", "ABC");
+        String actual = solution.minWindow2("ADOBECODEBANC", "ABC");
         Assert.assertEquals(expected, actual);
     }
 

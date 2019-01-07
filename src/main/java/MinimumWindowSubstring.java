@@ -138,4 +138,44 @@ public class MinimumWindowSubstring {
         else
             return "";
     }
+
+    public String minWindow2(String s, String t) {
+        Map<Character, Integer> map = new HashMap<>();
+        int begin = 0, end = 0, offset = -1, len = Integer.MAX_VALUE;
+        for (char ch : t.toCharArray()) {
+            map.put(ch, map.getOrDefault(ch, 0) + 1);
+        }
+        int counter = map.size();
+
+        while (end < s.length()) {
+            char ch = s.charAt(end);
+            if (map.containsKey(ch)) {
+                map.put(ch, map.get(ch) - 1);
+                if (map.get(ch) == 0) {
+                    counter --;
+                }
+            }
+            end ++;
+
+            while (counter == 0) {
+                char tempc = s.charAt(begin);
+                if (map.containsKey(tempc)) {
+                    map.put(tempc, map.get(tempc) + 1);
+                    if (map.get(tempc) > 0) {
+                        counter ++;
+                    }
+                }
+                if ((end - begin) < len) {
+                    len = end - begin;
+                    offset = begin;
+                }
+                begin ++;
+            }
+        }
+        if (offset >= 0) {
+            return s.substring(offset, offset + len);
+        } else {
+            return "";
+        }
+    }
 }

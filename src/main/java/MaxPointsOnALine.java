@@ -13,7 +13,7 @@ import java.util.Map;
  * @author Wei Gao
  */
 public class MaxPointsOnALine {
-    /*
+    /**
      * A line is determined by two factors,say y=ax+b
      * 
      * If two points(x1,y1) (x2,y2) are on the same line(Of course).
