@@ -17,7 +17,6 @@ public class FindAllAnagramsInAString {
         int head = 0;
         int len = Integer.MAX_VALUE;
 
-
         while(end < s.length()){
             char c = s.charAt(end);
             if( map.containsKey(c) ){
