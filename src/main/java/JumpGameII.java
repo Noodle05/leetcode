@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * <p>
  * Given an array of non-negative integers, you are initially positioned at the
@@ -35,20 +37,31 @@ public class JumpGameII {
      * @return
      */
     public int jump(int[] A) {
-        int ret = 0;
-        int last = 0;
-        int curr = 0;
-        for (int i = 0; i < A.length; i++) {
-            if (i > last) {
-                // If not last one and can't go further
-                if (curr == last && last < A.length - 1) {
-                    return -1;
-                }
-                last = curr;
-                ret++;
+        int jumps = 0, curEnd = 0, curFarthest = 0;
+        for (int i = 0; i < A.length - 1; i ++) {
+            curFarthest = Math.max(curFarthest, i + A[i]);
+            if (i == curEnd) {
+                jumps ++;
+                curEnd = curFarthest;
             }
-            curr = Math.max(curr, i + A[i]);
         }
-        return ret;
+        return jumps;
+    }
+
+    public int jump2(int[] nums) {
+        int[] dp = new int[nums.length];
+        dp[0] = 0;
+        for (int i = 1; i < nums.length; i ++) {
+            for (int j = 0; j < nums[i - 1]; j ++) {
+                if ((i + j) < nums.length) {
+                    if (dp[i + j] == 0) {
+                        dp[i + j] = dp[i - 1] + 1;
+                    } else {
+                        dp[i + j] = Math.min(dp[i + j], dp[i] + 1);
+                    }
+                }
+            }
+        }
+        return dp[nums.length - 1];
     }
 }
